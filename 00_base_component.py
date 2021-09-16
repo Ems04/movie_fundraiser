@@ -12,8 +12,7 @@ def not_blank(question):
             return response
     # If name if blank, show error (& repeat loop)
         else:
-            print("This can't be blank, please enter your name.")
-
+            print("This can't not been blank, please enter your name.")
 # integer check
 def int_check(question):
 
@@ -25,7 +24,7 @@ def int_check(question):
         try:
             response = int(input(question))
 
-            if response <=0:
+            if response <= 0:
                 print(error)
             else:
                 return response
@@ -43,12 +42,13 @@ ticket_profit = 0
 name = ""
 ticket_count = 0
 ticket_sales = 0
+ticket_profit = 0
 
 while name != 'xxx' and ticket_count < MAX_TICKETS:
     if ticket_count < MAX_TICKETS:
-        print("You have {} seats left.".format(MAX_TICKETS - ticket_count))
+        print("These {} seats left.".format(MAX_TICKETS - ticket_count))
     else:
-        print("You have one place left")
+        print("These one place left.")
 
     # Get details...
     # Name (can't be blank)
@@ -57,15 +57,13 @@ while name != 'xxx' and ticket_count < MAX_TICKETS:
         break
     # Age (between 12 & 130)
     age = int_check("Age: ")
-
     # check that age is valid
     if age < 12:
-        print("Sorry you are too young to watch this movie.")
+        print("Sorry, you are too young to watch this movie.")
         continue
     elif age > 130:
         print("This is very old. It looks like you have made a mistake.")
         continue
-
     # ticket price details
     if age < 16:
         ticket_price = 7.5
@@ -78,21 +76,19 @@ while name != 'xxx' and ticket_count < MAX_TICKETS:
     ticket_sales += ticket_price
 
 # End of ticket loop
-# Calculalty profit
-ticket_price = ticket_count - (5 * ticket_count)
-print("Profit from tickets sales are ${:.2f}".format(ticket_sales))
 
 # Tell user if they have unsold tickets
 if ticket_count == MAX_TICKETS:
-    print("You have sold all the available tickets!")
+    print("All available tickets have been sold!")
 else:
-    print("You have sold {} tickets. There are {} place still available.".format(ticket_count, MAX_TICKETS - ticket_count))
+    print("{} tickets have been sold. {} ticket is available.".format(ticket_count, MAX_TICKETS - ticket_count))
 
-# Calculate ticket price
-profit_made = ticket_price - 5
-profit += profit_made
+# Calculate profit
+ticket_profit = (5 * ticket_count) - ticket_price
+print("Total from tickets sales is ${:.2f}".format(ticket_sales))
+print("Profit from tickets sales is ${:.2f}".format(ticket_profit))
 
-# Ask for paymethod (ands apply surcharge if need)
+# Ask for payment (and apply surcharge if need)
 # Calculate total sales and profit
 # Output data to text file
 
