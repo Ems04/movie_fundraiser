@@ -1,3 +1,4 @@
+
 def string_checker(question, to_check):
 
     valid = False
@@ -14,7 +15,7 @@ def string_checker(question, to_check):
                 # an item in the list
                 if response == item[0]:
                     # note: returns the entire response
-                    # rather than  just the first letter
+                    # rather than just the first letter
                     return item
 
         print("Sorry that is not a valid response")
