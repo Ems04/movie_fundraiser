@@ -17,6 +17,6 @@ def yes_no (question):
 
 # Main routine goes here
 for item in range(0, 6):
-    want_snack = yes_no("Would like to have some snacks?")
+    want_snack = yes_no("Would like to have some snacks? ")
     print("Answer okay. You said: {}".format(want_snack))
     print()
